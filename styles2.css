@@ -108,3 +108,8 @@ input[type="submit"] {
   }
 
 
+
+audio {
+    height: 100px;
+    width: 100%;
+}
