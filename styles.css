@@ -2,92 +2,76 @@ body {
     background: url(/Assets/01-imagenes-de-los-simpsons.jpg);
     background-size: 100%;
     color: #fff;
-    
     font-family: Arial, Helvetica, sans-serif;
     font-size: 19px;
-}
-
-#container {
-    /* display: flex;
-    flex-direction: column; */
-    width: 60%;
-    background: #2ab4be;
-    opacity: 90%;
-    background-size: coain;
-    
-    margin: 20px auto;
-    overflow: auto;
-    padding: 25px;
-}
-
-header {
+  }
+  
+  header {
     text-align: center;
     border-bottom: #fff dashed 1px;
-}
-
-header h1{
+  }
+  
+  header h1 {
     margin: 0;
     padding: 0;
     color: yellow;
     font-size: 15px;
-
-}
-
-header p {
+  }
+  
+  header p {
     padding: 10px;
     font-size: 40px;
     margin-top: 5px;
-    color: #000000;   
-}
-
-.p {
+    color: #000000;
+  }
+  
+  #container {
+    width: 60%;
+    background: #2ab4be;
+    opacity: 90%;
+    background-size: coain;
+    margin: 20px auto;
+    overflow: auto;
+    padding: 25px;
+  }
+  
+  .sectionPrincipal {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #preguntas {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .p {
     font-size: 20px;
     padding: 10px;
-}
-
-h3 {
+  }
+  
+  h3 {
     color: #000000;
-}
-
-.sectionPrincipal  {
-    display: flex;
-    flex-direction: column;
-}
-
-#preguntas {
-    display: flex;
-    flex-direction: column;
-
-}
-
-label {
+  }
+  
+  label {
     padding: 5px;
-}
-
-input[type="submit"] {
-    background: #f06226;
-    border: 0;
-    color: #fff;
-    padding: 10px 15px;
-    cursor: pointer;
-    margin-top: 30px;
-}
-
-#resultado h3 {
+  }
+  
+  #resultado h3 {
     background: #c6db48;
     padding: 10px;
     margin: 10px 0;
     text-align: center;
-
-}
-
-#resultado spam {
+  }
+  
+  #resultado spam {
     color: #000;
     font-weight: bold;
     font-size: 30px;
-}
-
-#boton {
+  }
+  
+  #boton {
     width: 100%;
     height: 40px;
     color: #fff;
@@ -102,14 +86,17 @@ input[type="submit"] {
     border: 2px solid #212529;
     background: #212529;
   }
+  
   #boton:hover {
     background: #fff;
-    color: #212529
+    color: #212529;
   }
 
-
-
-audio {
+  #volverJugar {
+    display: none;
+  }
+  
+  audio {
     height: 100px;
-    width: 100%;
-}
+    width: 500px;
+  }

@@ -98,14 +98,14 @@ for ( let i = 0 ; i < preguntas.length ; i++) {
 
 
     let tituloPregunta = document.createElement("h3");
-    tituloPregunta.textContent = preguntas[i].titulo;
+    tituloPregunta.textContent = (i+1) + " " + preguntas[i].titulo;
     // tituloPregunta.classList.add("tituloPregunta")
     section.appendChild(tituloPregunta);
 
     // respuesta 1, input radio 1
 
     let label1 = document.createElement("label");
-    label1.innerHTML = preguntas[i].respuesta1;
+    label1.innerHTML = "a)" + "   " + preguntas[i].respuesta1;
     section.appendChild(label1);
 
     let input1 = document.createElement("input");
@@ -119,7 +119,7 @@ for ( let i = 0 ; i < preguntas.length ; i++) {
     // respuesta 2, input radio 2
     
     let label2 = document.createElement("label");
-    label2.innerHTML = preguntas[i].respuesta2;
+    label2.innerHTML = "b)" + "   " +preguntas[i].respuesta2;
     label2.classList.add("label2")
     section.appendChild(label2);
 
@@ -134,7 +134,7 @@ for ( let i = 0 ; i < preguntas.length ; i++) {
      // respuesta 3, input radio 3
     
      let label3 = document.createElement("label");
-     label3.innerHTML = preguntas[i].respuesta3;
+     label3.innerHTML = "c)" + "   " + preguntas[i].respuesta3;
      label3.classList.add("label3")
      section.appendChild(label3);
  
@@ -149,7 +149,7 @@ for ( let i = 0 ; i < preguntas.length ; i++) {
      // respuesta 4, input radio 4
     
      let label4 = document.createElement("label");
-     label4.innerHTML = preguntas[i].respuesta4;
+     label4.innerHTML = "d)" + "   " +preguntas[i].respuesta4;
      label4.classList.add("label4")
      section.appendChild(label4);
  
@@ -161,24 +161,17 @@ for ( let i = 0 ; i < preguntas.length ; i++) {
      input4.value = "d";
      label4.appendChild(input4);
 
-
-     // no he sabido meter el boton al final de formulario..................
-
-    //  let inputButton = document.createElement("input");
-    //  inputButton.type ="submit";
-    //  inputButton.value = "Enviar";
-    //  inputButton.id ="boton";
-    //  inputButton.textContent ="Comprueba tus respuestas";
-
-
-
 // selecciono el form y añado todo lo anterior, todo lo que este escrito arriba se añade dentro del form.
    
     let form = document.getElementsByClassName("container")[0];
     form.appendChild(section);
 }
 
-
+// cojo el boton para meterle el js.
+const boton = document.getElementById("boton")
+boton.addEventListener("click", function(){
+    verificarRespuestas()
+})
 
 // funciones verificar respuestas e imprimir texto.
 
@@ -192,7 +185,7 @@ let respuestas = ["c","b","c","b", "c", "a", "c", "b", "b", "b"];
 
 for(let i = 1; i <= total;i++){
     if(myForm["p" + i].value === null || myForm["p" + i].value === "" ){
-        alert ("Porfavor responde a la pregunta nº  " + i);
+        swal ("Porfavor responde a la pregunta nº  " + i, " ", "warning");
         return false;
     } else {
         if (myForm["p"+ i].value === respuestas[i-1]){
@@ -203,7 +196,20 @@ for(let i = 1; i <= total;i++){
 }
 
 let resultado = document.getElementById("resultado");
-resultado.innerHTML = "<h3> Has conseguido... <spam>" + puntos +"</spam>  de  <spam>" + total + " puntos</spam> </h3>"
+resultado.innerHTML = "<h3> Has acertado... <spam>" + puntos +"</spam>  /  <spam>" + total + " preguntas</spam> </h3>"
+resultado.innerHTML += "<h3> Has fallado... <spam>" + (total - puntos) + "</spam>  /  <spam>" + total + " preguntas</spam> </h3>"
+
+document.getElementById("formulario").style.display = "none";
+document.getElementById("boton").style.display = "none";
+document.getElementById("audio").style.display = "none";
+
+const volverJugar = document.getElementById("volverJugar");volverJugar.style.display = "block";
+volverJugar.addEventListener("click", function(){
+    location.reload();
+  });
+  
+
+
 
 return false;
 }
